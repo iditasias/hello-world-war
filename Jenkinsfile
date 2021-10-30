@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'ubuntu-docker-nodes'
+      label 'centos7-nodejs'
     }
 
   }
