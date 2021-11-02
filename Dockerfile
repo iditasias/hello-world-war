@@ -1,4 +1,4 @@
-FROM centos:01
+FROM centos
 MAINTAINER Idit
 ADD /target/*.war /war_file/
 CMD ["/bin/bash"]
