@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'ubuntu-docker-nodes'
-    }
-
-  }
+  agent any
   stages {
     stage('checkout code') {
       steps {
