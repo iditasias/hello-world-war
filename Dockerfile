@@ -1,4 +1,5 @@
-FROM ubuntu
-MAINTAINER Idit
-ADD /target/*.war /war_file/
-CMD ["/bin/bash"]
+FROM tomcat
+
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+
+EXPOSE 8080
