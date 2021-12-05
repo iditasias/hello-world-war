@@ -22,6 +22,6 @@ pipeline {
 
   }
   environment {
-  sonar_cerd = credentials('sonar_token')
+  sonar_cerd = credentials('SONAR_TOKEN')
   }
 }
