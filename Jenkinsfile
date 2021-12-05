@@ -16,12 +16,12 @@ pipeline {
     stage('sonarqube') {
       steps {
         sh '''mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=iditasias_hello-world-war -Dsonar.login=$sonar_cerd
-'''
+
       }
     }
 
   }
   environment {
-    sonar_cerd = credentials('sonarqube')
+  sonar_cerd = credentials('sonarqube')
   }
 }
