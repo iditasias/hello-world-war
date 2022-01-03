@@ -20,8 +20,16 @@ pipeline {
       }
     }
 
-}
-    environment {
+    stage('docker build') {
+      steps {
+        sh '''echo "$USER"
+docker build -t helloworld:$BUILD_ID .
+'''
+      }
+    }
+
+  }
+  environment {
     sonar_cerd = credentials('SONAR_TOKEN')
   }
 }
