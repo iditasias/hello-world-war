@@ -28,6 +28,14 @@ docker build -t helloworld:$BUILD_ID .
       }
     }
 
+    stage('docker tag push') {
+      steps {
+        sh '''docker tag hello-world:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
+docker push 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
+'''
+      }
+    }
+
   }
   environment {
     sonar_cerd = credentials('SONAR_TOKEN')
