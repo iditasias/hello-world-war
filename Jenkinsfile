@@ -30,8 +30,8 @@ docker build -t helloworld:$BUILD_ID .
 
     stage('docker tag push') {
       steps {
-        sh '''docker tag hello-world:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
-docker push 127.0.0.1:8123/repository/docker-hosted/hello-world:$BUILD_ID
+        sh '''docker tag helloworld:$BUILD_ID 10.100.102.45:8123/repository/docker-hosted/helloworld:$BUILD_ID
+docker push 10.100.102.45:8123/repository/docker-hosted/helloworld:$BUILD_ID
 '''
       }
     }
