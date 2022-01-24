@@ -30,8 +30,13 @@ docker build -t helloworld:$BUILD_ID .
 
     stage('docker tag push') {
       steps {
-        sh '''docker tag helloworld:$BUILD_ID 10.100.102.45:8123/repository/docker-hosted/helloworld:$BUILD_ID
-docker push 10.100.102.45:8123/repository/docker-hosted/helloworld:$BUILD_ID
+        sh '''
+withDockerRegistry(credentialsId: \'nexus\', url: \'http://127.0.0.1:8123/repository/docker-hosted/\') {
+sh \'\'\'docker tag helloworld:$BUILD_ID 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID
+
+               docker push 127.0.0.1:8123/repository/docker-hosted/helloworld:$BUILD_ID\'\'\'
+}
+
 '''
       }
     }
